@@ -7,6 +7,10 @@ body {
 	font-size: 25px;
 }
 
+button {
+	font-size: 25px;
+}
+
 .device {
 	display: flex;
 	flex-direction: column;
@@ -84,10 +88,10 @@ body {
 }
 
 #equals {
-	margin-right: 4px;
+	margin-right: 10px;
 }
 
 #zero {
 	flex: 1;
-	margin-left: 4px;
+	margin-left: 10px;
 }

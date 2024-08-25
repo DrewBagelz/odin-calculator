@@ -65,7 +65,8 @@ button {
 	background-color: rgb(255, 255, 255);
 }
 
-.op-button {
+.op-button,
+#equals {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -84,7 +85,9 @@ button {
 	background-color: rgb(175, 175, 175);
 }
 
-.sp-button {
+#all-clear,
+#clear,
+#decimal {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -98,12 +101,19 @@ button {
 	font-weight: bold;
 }
 
-.sp-button:active {
+#all-clear:active,
+#clear:active,
+#decimal:active {
 	background-color: rgb(175, 175, 175);
 }
 
 #equals {
 	margin-right: 10px;
+}
+
+#equals:active {
+	background-color: rgb(175, 175, 175);
+	color: rgb(0, 0, 0);
 }
 
 #zero {

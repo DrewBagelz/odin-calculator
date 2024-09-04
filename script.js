@@ -25,6 +25,14 @@ numbers.forEach((number) =>
 	})
 );
 
+allClear.addEventListener("click", () => {
+	operandX = "";
+	operandY = "";
+	operator = "";
+	displayValue = 0;
+	updateDisplay();
+});
+
 function handleNumber(num) {
 	if (displayValue === 0) {
 		displayValue = "";

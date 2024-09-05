@@ -20,8 +20,9 @@ function updateDisplay() {
 }
 
 numbers.forEach((number) =>
-	number.addEventListener("click", function (e) {
+	number.addEventListener("click", (e) => {
 		handleNumber(e.target.textContent);
+		console.log(displayValue);
 	})
 );
 
@@ -34,10 +35,12 @@ allClear.addEventListener("click", () => {
 });
 
 function handleNumber(num) {
-	if (displayValue === 0) {
+	if (displayValue === 0 && num !== "0") {
 		displayValue = "";
 		displayValue += num;
 		updateDisplay();
+	} else if (displayValue === 0 && num === "0") {
+		displayValue = 0;
 	} else {
 		displayValue += num;
 		updateDisplay();

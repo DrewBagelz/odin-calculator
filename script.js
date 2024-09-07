@@ -1,7 +1,7 @@
 let operandX = "";
 let operandY = "";
 let operator = "";
-let displayValue = 0;
+let displayValue = Number(0);
 
 const screen = document.querySelector(".screen");
 const allClear = document.querySelector("#all-clear");
@@ -13,16 +13,15 @@ const operators = document.querySelectorAll(".op-button");
 
 updateDisplay();
 
-function updateDisplay() {
-	if (displayValue.length < 9 || displayValue === 0) {
-		screen.textContent = displayValue;
-	}
-}
-
 numbers.forEach((number) =>
 	number.addEventListener("click", (e) => {
 		handleNumber(e.target.textContent);
-		console.log(displayValue);
+	})
+);
+
+operators.forEach((operator) =>
+	operator.addEventListener("click", (e) => {
+		handleOperator(e.target.textContent);
 	})
 );
 
@@ -33,6 +32,13 @@ allClear.addEventListener("click", () => {
 	displayValue = 0;
 	updateDisplay();
 });
+
+function updateDisplay() {
+	if (displayValue.length < 9 || displayValue === 0) {
+		screen.textContent = displayValue;
+		displayValue = Number(displayValue);
+	}
+}
 
 function handleNumber(num) {
 	if (displayValue === 0 && num !== "0") {
@@ -45,6 +51,12 @@ function handleNumber(num) {
 		displayValue += num;
 		updateDisplay();
 	}
+}
+
+function handleOperator(op) {
+	operator = op;
+	operandX = Number(displayValue);
+	displayValue = "";
 }
 
 function operate(x, y, operator) {

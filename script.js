@@ -57,6 +57,16 @@ allClear.addEventListener("click", () => {
 	updateDisplay();
 });
 
+clear.addEventListener("click", () => {
+	if (displayValue.length > 1) {
+		displayValue = displayValue.slice(0, -1);
+		updateDisplay();
+	} else if (displayValue.length === 1) {
+		displayValue = "0";
+		updateDisplay();
+	}
+});
+
 function updateDisplay() {
 	if (displayValue.length < 9 || displayValue === "0") {
 		screen.textContent = displayValue;

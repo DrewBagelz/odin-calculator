@@ -2,7 +2,7 @@ let operandX = "";
 let operandY = "";
 let operator = "";
 let result = "";
-let displayValue = Number(0);
+let displayValue = "0";
 
 const screen = document.querySelector(".screen");
 const allClear = document.querySelector("#all-clear");
@@ -28,10 +28,10 @@ operators.forEach((operator) =>
 
 equals.addEventListener("click", () => {
 	if (operandX) {
-		operandY = Number(displayValue);
-		result = operate(operandX, operandY, operator);
+		operandY = displayValue;
+		result = operate(Number(operandX), Number(operandY), operator);
 		displayValue = result.toString();
-		operandX = Number(displayValue);
+		operandX = operandY;
 		operandY = "";
 		operator = "";
 		result = "";
@@ -41,7 +41,7 @@ equals.addEventListener("click", () => {
 
 decimal.addEventListener("click", () => {
 	if (displayValue === operandX || displayValue === operandY) {
-		displayValue = 0;
+		displayValue = "0";
 		displayValue += ".";
 	} else if (!displayValue.includes(".")) {
 		displayValue += ".";
@@ -53,23 +53,23 @@ allClear.addEventListener("click", () => {
 	operandX = "";
 	operandY = "";
 	operator = "";
-	displayValue = 0;
+	displayValue = "0";
 	updateDisplay();
 });
 
 function updateDisplay() {
-	if (displayValue.length < 9 || displayValue === 0) {
+	if (displayValue.length < 9 || displayValue === "0") {
 		screen.textContent = displayValue;
 	}
 }
 
 function handleNumber(num) {
-	if (displayValue === 0 && num !== "0") {
+	if (displayValue === "0" && num !== "0") {
 		displayValue = "";
 		displayValue += num;
 		updateDisplay();
-	} else if (displayValue === 0 && num === "0") {
-		displayValue = 0;
+	} else if (displayValue === "0" && num === "0") {
+		displayValue = "0";
 	} else {
 		displayValue += num;
 		updateDisplay();
@@ -78,7 +78,7 @@ function handleNumber(num) {
 
 function handleOperator(op) {
 	operator = op;
-	operandX = Number(displayValue);
+	operandX = displayValue;
 	displayValue = "";
 }
 

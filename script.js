@@ -39,6 +39,16 @@ equals.addEventListener("click", () => {
 	updateDisplay();
 });
 
+decimal.addEventListener("click", () => {
+	if (displayValue === operandX || displayValue === operandY) {
+		displayValue = 0;
+		displayValue += ".";
+	} else if (!displayValue.includes(".")) {
+		displayValue += ".";
+	}
+	updateDisplay();
+});
+
 allClear.addEventListener("click", () => {
 	operandX = "";
 	operandY = "";
@@ -50,7 +60,6 @@ allClear.addEventListener("click", () => {
 function updateDisplay() {
 	if (displayValue.length < 9 || displayValue === 0) {
 		screen.textContent = displayValue;
-		displayValue = Number(displayValue);
 	}
 }
 

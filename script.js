@@ -1,6 +1,7 @@
 let operandX = "";
 let operandY = "";
 let operator = "";
+let result = "";
 let displayValue = Number(0);
 
 const screen = document.querySelector(".screen");
@@ -24,6 +25,19 @@ operators.forEach((operator) =>
 		handleOperator(e.target.textContent);
 	})
 );
+
+equals.addEventListener("click", () => {
+	if (operandX) {
+		operandY = Number(displayValue);
+		result = operate(operandX, operandY, operator);
+		displayValue = result.toString();
+		operandX = Number(displayValue);
+		operandY = "";
+		operator = "";
+		result = "";
+	}
+	updateDisplay();
+});
 
 allClear.addEventListener("click", () => {
 	operandX = "";

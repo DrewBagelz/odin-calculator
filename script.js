@@ -39,7 +39,6 @@ equals.addEventListener("click", () => {
 		operandX = displayValue;
 		operandY = "";
 		operator = "";
-		result = "";
 	}
 	updateDisplay();
 });
@@ -98,8 +97,17 @@ function handleNumber(num) {
 }
 
 function handleOperator(op) {
-	operator = op;
-	operandX = displayValue;
+	if (operandX && operator) {
+		operandY = displayValue;
+		result = operate(Number(operandX), Number(operandY), operator);
+		displayValue = result.toString();
+		operandX = displayValue;
+		operator = op;
+		updateDisplay();
+	} else {
+		operator = op;
+		operandX = displayValue;
+	}
 }
 
 function operate(x, y, operator) {

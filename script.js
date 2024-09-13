@@ -1,3 +1,8 @@
+// TO-DO:
+// Stringing operations
+// Rounding
+// divide by zero message
+
 let operandX = "";
 let operandY = "";
 let operator = "";
@@ -31,7 +36,7 @@ equals.addEventListener("click", () => {
 		operandY = displayValue;
 		result = operate(Number(operandX), Number(operandY), operator);
 		displayValue = result.toString();
-		operandX = operandY;
+		operandX = displayValue;
 		operandY = "";
 		operator = "";
 		result = "";
@@ -74,22 +79,27 @@ function updateDisplay() {
 }
 
 function handleNumber(num) {
-	if (displayValue === "0" && num !== "0") {
-		displayValue = "";
-		displayValue += num;
-		updateDisplay();
-	} else if (displayValue === "0" && num === "0") {
-		displayValue = "0";
+	if (operator === "") {
+		if (displayValue === "0") {
+			displayValue = num;
+		} else if (displayValue === operandX) {
+			displayValue = num;
+		} else {
+			displayValue += num;
+		}
 	} else {
-		displayValue += num;
-		updateDisplay();
+		if (displayValue === operandX) {
+			displayValue = num;
+		} else {
+			displayValue += num;
+		}
 	}
+	updateDisplay();
 }
 
 function handleOperator(op) {
 	operator = op;
 	operandX = displayValue;
-	displayValue = "";
 }
 
 function operate(x, y, operator) {

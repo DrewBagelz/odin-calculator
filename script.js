@@ -46,7 +46,6 @@ equals.addEventListener("click", () => {
 			operandX = displayValue;
 			operandY = "";
 			operator = "";
-			displayValue = "0";
 		}
 	}
 });
@@ -112,7 +111,6 @@ function handleOperator(op) {
 		operandX = displayValue;
 		operator = op;
 		updateDisplay();
-		displayValue = "0";
 	} else {
 		operator = op;
 		operandX = displayValue;

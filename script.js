@@ -42,16 +42,17 @@ equals.addEventListener("click", () => {
 			operator = "";
 		} else {
 			displayValue = result.toString();
+			updateDisplay();
 			operandX = displayValue;
 			operandY = "";
 			operator = "";
-			updateDisplay();
+			displayValue = "0";
 		}
 	}
 });
 
 decimal.addEventListener("click", () => {
-	if (displayValue === operandX || displayValue === operandY) {
+	if (displayValue === operandX || displayValue === "0") {
 		displayValue = "0";
 		displayValue += ".";
 	} else if (!displayValue.includes(".")) {
@@ -94,7 +95,7 @@ function handleNumber(num) {
 			displayValue += num;
 		}
 	} else {
-		if (displayValue === operandX) {
+		if (displayValue === operandX || displayValue === "0") {
 			displayValue = num;
 		} else {
 			displayValue += num;
@@ -111,6 +112,7 @@ function handleOperator(op) {
 		operandX = displayValue;
 		operator = op;
 		updateDisplay();
+		displayValue = "0";
 	} else {
 		operator = op;
 		operandX = displayValue;

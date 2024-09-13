@@ -1,7 +1,5 @@
 // TO-DO:
-// Stringing operations
 // Rounding
-// divide by zero message
 
 let operandX = "";
 let operandY = "";
@@ -35,12 +33,21 @@ equals.addEventListener("click", () => {
 	if (operandX) {
 		operandY = displayValue;
 		result = operate(Number(operandX), Number(operandY), operator);
-		displayValue = result.toString();
-		operandX = displayValue;
-		operandY = "";
-		operator = "";
+		if (result === "ABSURD!!") {
+			displayValue = result;
+			updateDisplay();
+			displayValue = "0";
+			operandX = "";
+			operandY = "";
+			operator = "";
+		} else {
+			displayValue = result.toString();
+			operandX = displayValue;
+			operandY = "";
+			operator = "";
+			updateDisplay();
+		}
 	}
-	updateDisplay();
 });
 
 decimal.addEventListener("click", () => {
@@ -119,7 +126,7 @@ function operate(x, y, operator) {
 		return x * y;
 	} else if (operator === "/") {
 		if (y === 0) {
-			return "You can't divide by 0 you silly goose!";
+			return "ABSURD!!";
 		} else {
 			return x / y;
 		}

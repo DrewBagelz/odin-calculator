@@ -81,6 +81,8 @@ clear.addEventListener("click", () => {
 function updateDisplay() {
 	if (displayValue.length < 9 || displayValue === "0") {
 		screen.textContent = displayValue;
+	} else if (displayValue.length >= 9) {
+		screen.textContent = Number(displayValue).toExponential(2);
 	}
 }
 

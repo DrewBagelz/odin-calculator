@@ -1,6 +1,3 @@
-// TO-DO:
-// Rounding
-
 let operandX = "";
 let operandY = "";
 let operator = "";

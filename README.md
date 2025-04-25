@@ -10,7 +10,7 @@ A simple calculator that preforms basic operations.
 
 I'm in the middle of moving right now, so this project took me a lot
 longer than I would have liked. Regardless, working through this helped
-reenforce a lot of concepts and techniques that I had previously been
+reinforce a lot of concepts and techniques that I had previously been
 confused about. For example, I spent a lot of time in my browser's dev
 tools and had to use the debugger and breakpoints for the first time.
 I'm also getting more used to recognizing when it's time to git commit.
